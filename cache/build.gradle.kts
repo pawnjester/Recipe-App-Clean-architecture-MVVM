@@ -1,6 +1,8 @@
 import Dependencies.Cache
 import Dependencies.DI
 import Dependencies.TestLibraires
+import ProjectLib.data
+import ProjectLib.testUtils
 
 
 plugins {
@@ -11,12 +13,10 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-
     defaultConfig {
-        minSdkVersion(Config.Version.min)
-        compileSdkVersion(Config.Version.compile)
-        targetSdkVersion(Config.Version.target)
+        minSdkVersion(BuildConfig.Versions.min)
+        compileSdkVersion(BuildConfig.Versions.compile)
+        targetSdkVersion(BuildConfig.Versions.target)
 
         javaCompileOptions {
             annotationProcessorOptions {

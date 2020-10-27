@@ -2,8 +2,8 @@ import Dependencies.AndroidX
 import Dependencies.Coroutines
 import Dependencies.DI
 import Dependencies.View
-import ProjectLib.domain
 import ProjectLib.data
+import ProjectLib.domain
 
 plugins {
     androidLibrary
@@ -13,25 +13,24 @@ plugins {
 }
 
 android {
+    compileSdkVersion(BuildConfig.Versions.compile)
     defaultConfig {
-        minSdkVersion (Config.Versions.min)
-        targetSdkVersion (Config.Versions.target)
-        compileSdkVersion(Config.Versions.compile)
-        testInstrumentationRunner = Config.Android.testInstrumentationRunner
+        minSdkVersion(BuildConfig.Versions.min)
+        targetSdkVersion(BuildConfig.Versions.target)
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         named(BuildType.DEBUG) {
             isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
             versionNameSuffix = BuildTypeDebug.versionNameSuffix
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 

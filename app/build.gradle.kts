@@ -18,16 +18,15 @@ plugins {
 }
 
 android {
-
     defaultConfig {
-        applicationId = Config.Android.applicationId
-        compileSdkVersion(Config.Android.compile)
-        minSdkVersion(Config.Versions.min)
-        targetSdkVersion(Config.Versions.target)
-        versionCode = Config.Versions.versionCode
-        versionName = Config.Versions.versionName
-        multiDexEnabled = Config.isMultiDexEnabled
-        testInstrumentationRunner = Config.Android.testInstrumentationRunner
+        applicationId = BuildConfig.Android.applicationId
+        compileSdkVersion(30)
+        minSdkVersion(BuildConfig.Versions.min)
+        targetSdkVersion(BuildConfig.Versions.target)
+        versionCode = BuildConfig.Versions.versionCode
+        versionName = BuildConfig.Versions.versionName
+        multiDexEnabled = BuildConfig.isMultiDexEnabled
+        testInstrumentationRunner = BuildConfig.Android.testInstrumentationRunner
     }
 
     kotlinOptions {

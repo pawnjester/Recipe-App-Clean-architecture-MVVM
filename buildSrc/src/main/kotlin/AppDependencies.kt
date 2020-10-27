@@ -5,7 +5,7 @@ const val kotlinAndroidExtension: String = "android.extensions"
 const val kotlinKapt: String = "kapt"
 const val ktLintVersion: String = "0.36.0"
 
-object Config {
+object BuildConfig {
 
     object Versions {
         const val min = 24
@@ -63,13 +63,13 @@ object Dependencies {
             const val materialComponent: String = "1.3.0-alpha02"
             const val shimmerLayout: String = "0.5.0"
             const val constraintLayout = "2.0.2"
-            const val recylerView = "1.2.0-alpha05"
+            const val recyclerView = "1.2.0-alpha05"
             const val appCompat: String = "1.3.0-alpha02"
             const val fragment: String = "1.3.0-alpha08"
         }
 
 
-        const val recylerView: String = "androidx.recyclerview:recyclerview:${Versions.recylerView}"
+        const val recyclerView: String = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val constraintLayout: String =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val appCompat: String = "androidx.appcompat:appcompat:${Versions.appCompat}"
@@ -176,12 +176,12 @@ object Dependencies {
 }
 
 object ProjectLib {
-    const val app: String = ':app'
-    const val core: String = ':core'
-    const val presentation: String = ':presentation'
-    const val domain: String = ':domain'
-    const val data: String = ':data'
-    const val cache: String = ':cache'
-    const val testUtils: String = ':testUtils'
-    const val recipeView: String = ':recipe_view'
+    const val app: String = ":app"
+    const val core: String = ":core"
+    const val presentation: String = ":presentation"
+    const val domain: String = ":domain"
+    const val data: String = ":data"
+    const val cache: String = ":cache"
+    const val testUtils: String = ":testUtils"
+    const val recipeView: String = ":recipe_view"
 }

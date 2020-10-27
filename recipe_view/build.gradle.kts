@@ -2,7 +2,7 @@ import Dependencies.AndroidX
 import Dependencies.Coroutines
 import Dependencies.DI
 import Dependencies.FlowBinding
-import Dependencies.Test
+import Dependencies.TestLibraires
 import Dependencies.View
 import ProjectLib.core
 import ProjectLib.domain
@@ -16,31 +16,28 @@ plugins {
     kotlin(kotlinAndroidExtension)
     kotlin(kotlinKapt)
     safeArgs
-    daggerHilt
 }
 
 android {
-
     defaultConfig {
-        compileSdkVersion(Config.Versions.compile)
-        minSdkVersion(Config.Versions.min)
-        targetSdkVersion(Config.Versions.target)
-
-        testInstrumentationRunner = Config.Android.testInstrumentationRunner
+        compileSdkVersion(BuildConfig.Versions.compile)
+        minSdkVersion(BuildConfig.Versions.min)
+        targetSdkVersion(BuildConfig.Versions.target)
+        testInstrumentationRunner = BuildConfig.Android.testInstrumentationRunner
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         named(BuildType.DEBUG) {
             isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
             versionNameSuffix = BuildTypeDebug.versionNameSuffix
         }
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -61,13 +58,13 @@ dependencies {
         implementation(recyclerView)
         implementation(shimmerLayout)
     }
-
+//
     implementation(FlowBinding.android)
     implementation(DI.hiltAndroid)
     implementation(DI.hiltViewModel)
     implementAll(AndroidX.components)
     implementAll(Coroutines.components)
-
+//
     kapt(DI.AnnotationProcessor.hiltAndroid)
     kapt(DI.AnnotationProcessor.hiltCompiler)
 
@@ -77,7 +74,7 @@ dependencies {
     androidTestImplementation(TestLibraires.fragmentTesting)
     androidTestImplementation(TestLibraires.rules)
     androidTestImplementation(TestLibraires.archCoreTest)
-
+//
     androidTestImplementation(TestLibraires.runner)
     androidTestImplementation(TestLibraires.androidXTest)
 
