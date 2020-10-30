@@ -39,7 +39,7 @@ object Dependencies {
         }
 
         const val navigationFragmentKtx: String =
-            "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponent}"
+            "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponent}"
         const val navigationUiKtx: String =
             "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponent}"
         const val multiDex: String = "androidx.multidex:multidex:${Versions.multidex}"
