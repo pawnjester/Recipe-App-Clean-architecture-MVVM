@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ui.recipe_list.RecipeListFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="350dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        style="@style/CardView.Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        style="@style/AppBar.Main">
 
-        <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:queryHint="Search Recipes"
-            android:theme="@style/SearchView.Design"/>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar.Main"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:title="Recipes" />
 
-    </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.appbar.MaterialToolbar style="@style/Toolbar.Main">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_search"
+                style="@style/CardView.Recipe"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:theme="@style/SearchView.Design"
+                    app:queryHint="search Recipes" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
 
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recipe_rv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"-->
+<!--            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>-->
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_recipe_list"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clipToPadding="false"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>-->
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

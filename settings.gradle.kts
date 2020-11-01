@@ -7,5 +7,6 @@ include(
     ":data",
     ":presentation",
     ":recipe_view",
-    ":testUtils"
+    ":testUtils",
+    ":remote"
 )

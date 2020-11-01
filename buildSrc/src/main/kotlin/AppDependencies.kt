@@ -173,6 +173,21 @@ object Dependencies {
         const val room: String = "androidx.room:room-ktx:${Versions.roomVersion}"
     }
 
+    object Remote {
+        object Versions {
+            const val retrofitVersion = "2.9.0"
+            const val okHttp = "4.9.0"
+
+
+        }
+
+        const val retrofit: String = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
+        const val retrofitConversion: String = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
+        const val okHttp: String = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+        const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+
+    }
+
 }
 
 object ProjectLib {
@@ -184,4 +199,5 @@ object ProjectLib {
     const val cache: String = ":cache"
     const val testUtils: String = ":testUtils"
     const val recipeView: String = ":recipe_view"
+    const val remote: String = ":remote"
 }
