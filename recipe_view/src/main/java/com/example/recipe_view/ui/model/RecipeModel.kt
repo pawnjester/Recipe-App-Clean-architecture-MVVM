@@ -1,6 +1,6 @@
-package com.example.domain.model
+package com.example.recipe_view.ui.model
 
-data class Recipe (
+data class RecipeModel(
     val id: Int,
     val title: String,
     val summary: String,
