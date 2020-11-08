@@ -24,7 +24,9 @@ class RecipeListViewModel @ViewModelInject constructor(
     fun getRecipes(query: String) {
         viewModelScope.launch {
             try {
+            Log.e("DDD", "OOee")
                 getRecipeList(query).map { recipes ->
+            Log.e("DDD", "OOOeee")
                     Log.e("DDD", recipes.toString())
                 }
             } catch (e: NetworkErrorException) {

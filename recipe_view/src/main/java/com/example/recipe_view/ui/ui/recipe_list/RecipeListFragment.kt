@@ -16,7 +16,7 @@ class RecipeListFragment : Fragment(R.layout.fragment_recipe_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        viewModel.getRecipes("pasta")
+        viewModel.getRecipes("pasta")
     }
 
 
