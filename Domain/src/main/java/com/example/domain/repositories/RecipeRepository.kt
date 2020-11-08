@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface RecipeRepository {
 
-    fun searchRecipe() : Flow<Recipe>
+    fun getRecipe(query: String) : Flow<List<Recipe>>
 }

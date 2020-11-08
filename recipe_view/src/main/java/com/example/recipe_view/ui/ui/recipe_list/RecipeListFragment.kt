@@ -1,18 +1,22 @@
 package com.example.recipe_view.ui.ui.recipe_list
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.recipe_view.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RecipeListFragment : Fragment(R.layout.fragment_recipe_list) {
+
+    private val viewModel: RecipeListViewModel by viewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e(">>>>", "here")
+
+//        viewModel.getRecipes("pasta")
     }
 
 

@@ -10,6 +10,6 @@ interface ApiService {
     suspend fun getRecipes(
         @Query("apiKey") apiKey: String,
         @Query("query") query: String,
-        @Query("addRecipeInformation") addRecipeInformation: Boolean
+        @Query("addRecipeInformation") addRecipeInformation: Boolean? = true
     ): RecipeResponse
 }

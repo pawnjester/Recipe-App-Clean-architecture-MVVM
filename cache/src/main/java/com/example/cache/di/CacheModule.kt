@@ -14,13 +14,14 @@ import javax.inject.Singleton
 @Module
 object CacheModule {
 
+
     @[Provides Singleton]
-    fun providesDatabase(@ApplicationContext context: Context) : RecipeDatabase {
+    fun providesDatabase(@ApplicationContext context: Context): RecipeDatabase {
         return RecipeDatabase.build(context)
     }
 
     @[Provides Singleton]
-    fun providesRecipeDao(database: RecipeDatabase) : RecipeDao {
+    fun providesRecipeDao(database: RecipeDatabase): RecipeDao {
         return database.recipeDao()
     }
 }
