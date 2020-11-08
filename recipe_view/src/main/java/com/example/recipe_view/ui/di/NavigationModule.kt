@@ -13,6 +13,6 @@ import dagger.hilt.android.components.ActivityComponent
 @Module
 object NavigationModule {
 
-    fun providesNavController(activity: Activity) :NavController =
+    fun providesNavController(activity: Activity): NavController =
         activity.findNavController(R.id.fragment_container)
 }

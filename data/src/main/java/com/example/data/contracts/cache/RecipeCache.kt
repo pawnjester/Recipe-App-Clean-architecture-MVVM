@@ -1,11 +1,12 @@
 package com.example.data.contracts.cache
 
 import com.example.data.model.RecipeEntity
+import kotlinx.coroutines.flow.Flow
 
 interface RecipeCache {
 
-    suspend fun getRecipes(
+    fun getRecipes(
         query: String,
         addRecipeInformation: Boolean
-    ) : List<RecipeEntity>
+    ) : Flow<List<RecipeEntity>>
 }

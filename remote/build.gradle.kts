@@ -1,9 +1,7 @@
-import Dependencies.Cache
 import Dependencies.DI
 import Dependencies.TestLibraires
 import Dependencies.Remote
 import ProjectLib.data
-import ProjectLib.remote
 import ProjectLib.testUtils
 
 
@@ -19,6 +17,12 @@ android {
         minSdkVersion(BuildConfig.Versions.min)
         compileSdkVersion(BuildConfig.Versions.compile)
         targetSdkVersion(BuildConfig.Versions.target)
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments.plusAssign(Pair("room.incremental", "true"))
+            }
+        }
 
         buildConfigField("String", "BASE_URL_API", "\"https://api.spoonacular.com/\"")
     }
@@ -42,19 +46,16 @@ dependencies {
 
     implementation(project(data))
     implementation(project(testUtils))
-    implementation(project(remote))
 
     implementation(DI.hiltAndroid)
     implementation(Remote.retrofit)
     implementation(Remote.okHttp)
     implementation(Remote.okHttpLoggingInterceptor)
     implementation(Remote.retrofitConversion)
-    api(Cache.room)
 
     testImplementation(TestLibraires.runner)
     testImplementation(TestLibraires.androidXTest)
     testImplementation(TestLibraires.robolectric)
 
-    kapt(Cache.AnnotationProcessor.room)
     kapt(DI.AnnotationProcessor.hiltAndroid)
 }
