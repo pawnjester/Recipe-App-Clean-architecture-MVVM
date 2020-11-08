@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/presentation" />
             <option value="$PROJECT_DIR$/recipe_view" />
+            <option value="$PROJECT_DIR$/remote" />
             <option value="$PROJECT_DIR$/testUtils" />
           </set>
         </option>

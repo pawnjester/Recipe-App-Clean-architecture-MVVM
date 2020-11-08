@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CardView.Search" parent="Widget.MaterialComponents.CardView">
+
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="backgroundColor">#CBCED1</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">#CBCED1</item>
+    </style>
+
+    <style name="CardView.Recipe" parent="Widget.MaterialComponents.CardView">
+
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="backgroundColor">#CBCED1</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">#CBCED1</item>
+    </style>
+
+    <style name="Toolbar.Main" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="titleTextColor">@android:color/black</item>
+    </style>
+
+    <style name="AppBar.Main" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+
+
+    <style name="SearchView.Design" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@null</item>
+        <item name="fontFamily">@font/didact_gothic_regular</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="backgroundColor">@null</item>
+        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@color/colorSilver</item>
+        <item name="android:windowBackground">@color/colorAquaHaze</item>
+    </style>
+</resources>

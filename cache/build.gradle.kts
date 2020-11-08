@@ -24,6 +24,7 @@ android {
             }
         }
         buildConfigField("int", "databaseVersion", 1.toString())
+        buildConfigField("String", "BASE_URL_API", "\"https://api.spoonacular.com/\"")
     }
 
     buildTypes {

@@ -15,7 +15,9 @@ plugins {
     kotlin(kotlinAndroid)
     kotlin(kotlinAndroidExtension)
     kotlin(kotlinKapt)
+    id("kotlin-android")
     safeArgs
+    daggerHilt
 }
 
 android {
@@ -46,6 +48,10 @@ dependencies {
     implementation(project(core))
     implementation(project(presentation))
     implementation(project(domain))
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     testImplementation(project(testUtils))
     androidTestImplementation(project(testUtils))
