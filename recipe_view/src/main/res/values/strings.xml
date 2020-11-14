@@ -6,4 +6,6 @@
     <string name="recipe_image_content_description">Recipe Image</string>
     <string name="favorite_recipe">Favorite Recipe</string>
     <string name="recipes">Recipes</string>
+    <string name="home_menu">Home</string>
+    <string name="favorites_menu">Favorite</string>
 </resources>

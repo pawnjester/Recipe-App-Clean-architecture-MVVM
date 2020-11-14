@@ -1,4 +1,4 @@
-package com.example.recipe_view.ui.ui.recipe_list
+package com.example.recipe_view.ui.ui.home
 
 import android.accounts.NetworkErrorException
 import android.util.Log
@@ -13,7 +13,7 @@ import com.example.recipe_view.ui.model.RecipeModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class RecipeListViewModel @ViewModelInject constructor(
+class HomeViewModel @ViewModelInject constructor(
     private val getRecipeList: GetRecipeListUseCase,
     private val mapper: RecipeModelMapper
 ) : ViewModel() {

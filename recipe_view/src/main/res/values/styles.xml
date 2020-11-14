@@ -52,4 +52,13 @@
         <item name="android:statusBarColor">@color/colorSilver</item>
         <item name="android:windowBackground">@color/colorAquaHaze</item>
     </style>
+    <style name="BottomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="background">@color/white</item>
+    </style>
 </resources>

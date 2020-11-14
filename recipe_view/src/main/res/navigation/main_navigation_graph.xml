@@ -3,24 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation_graph"
-    app:startDestination="@id/recipeListFragment">
+    app:startDestination="@id/navigation_home">
 
 
     <fragment
-        android:id="@+id/recipeListFragment"
-        android:name="com.example.recipe_view.ui.ui.recipe_list.RecipeListFragment"
-        android:label="RecipeListFragment"
-        tools:layout="@layout/fragment_recipe_list">
-
-
+        android:id="@+id/navigation_home"
+        android:name="com.example.recipe_view.ui.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_recipeListFragment"
+            app:destination="@id/recipeListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
         android:id="@+id/recipeDetailFragment"
         android:name="com.example.recipe_view.ui.ui.recipe_detail.RecipeDetailFragment"
-        android:label="RecipeListFragment"
-        tools:layout="@layout/fragment_recipe_list"/>
-
+        android:label="RecipeListFragment" />
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.recipe_view.ui.ui.recipe_favorite.FavoriteRecipeFragment"
+        android:label="fragment_favorite_recipe"
+        tools:layout="@layout/fragment_favorite_recipe" >
+        <action
+            android:id="@+id/action_favoriteRecipeFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeListFragment"
+        android:name="com.example.recipe_view.ui.ui.recipe_list.RecipeListFragment"
+        android:label="fragment_recipe_list"
+        tools:layout="@layout/fragment_recipe_list" >
+        <action
+            android:id="@+id/action_recipeListFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
 
 
 </navigation>
