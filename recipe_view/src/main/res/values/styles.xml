@@ -12,7 +12,7 @@
     <style name="CardView.Recipe" parent="Widget.MaterialComponents.CardView">
 
         <item name="cardElevation">0dp</item>
-        <item name="cardCornerRadius">20dp</item>
+        <item name="cardCornerRadius">0dp</item>
         <item name="backgroundColor">#CBCED1</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">#CBCED1</item>

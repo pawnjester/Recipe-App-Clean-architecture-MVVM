@@ -9,4 +9,5 @@ interface RecipeCache {
         query: String,
         addRecipeInformation: Boolean
     ) : Flow<List<RecipeEntity>>
+
 }

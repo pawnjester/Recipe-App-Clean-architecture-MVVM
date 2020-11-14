@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.recipe_view.R
 import dagger.hilt.android.AndroidEntryPoint
@@ -12,11 +13,13 @@ import kotlinx.android.synthetic.main.fragment_home.*
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+    private val viewModel : HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initializeView()
+//        viewModel.getRecipes("pasta")
     }
 
     private fun initializeView() {

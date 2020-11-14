@@ -17,9 +17,8 @@ class RecipeRepositoryImpl @Inject constructor(
     private val recipeRemote: RecipeRemote
 ) : RecipeRepository {
 
-    override fun getRecipe(query: String): Flow<List<Recipe>> {
+    override fun getRecipes(query: String): Flow<List<Recipe>> {
         return flow {
-            val recipeCache = recipeCache.getRecipes("", true)
             val remoteData = recipeRemote.getRecipes(
                 query = query
             ).map {

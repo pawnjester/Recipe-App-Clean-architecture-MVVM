@@ -18,7 +18,7 @@ class GetRecipeListUseCase @Inject constructor(
 
     override fun execute(params: String?): Flow<List<Recipe>> {
         requireNotNull(params) {"params cannot be null"}
-        return repository.getRecipe(params)
+        return repository.getRecipes(params)
     }
 
 }

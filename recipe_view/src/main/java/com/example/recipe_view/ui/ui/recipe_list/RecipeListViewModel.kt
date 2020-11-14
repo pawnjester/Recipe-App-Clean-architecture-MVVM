@@ -1,4 +1,4 @@
-package com.example.recipe_view.ui.ui.home
+package com.example.recipe_view.ui.ui.recipe_list
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
@@ -12,21 +12,21 @@ import com.example.recipe_view.ui.model.RecipeModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class HomeViewModel @ViewModelInject constructor(
+class RecipeListViewModel @ViewModelInject constructor(
     private val getRecipeList: GetRecipeListUseCase,
     private val mapper: RecipeModelMapper
 ) : ViewModel() {
 
-    private var _recipes = MutableLiveData<RecipeModel>()
-    val recipes: LiveData<RecipeModel> = _recipes
+    private val _recipes = MutableLiveData<List<RecipeModel>>()
+    val recipes: LiveData<List<RecipeModel>> = _recipes
 
     fun getRecipes(query: String) {
         viewModelScope.launch {
             getRecipeList(query).collect {
                 Log.e(">>>", it.toString())
+                val recipes = mapper.mapToModelList(it)
+                _recipes.value = recipes
             }
         }
     }
-
-
 }
