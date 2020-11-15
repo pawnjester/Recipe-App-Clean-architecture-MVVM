@@ -20,13 +20,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initializeView() {
-        search_view.findViewById<EditText>(androidx.appcompat.R.id.search_src_text).apply {
-            isFocusableInTouchMode = false
-            setOnClickListener {
-                val action = HomeFragmentDirections.actionHomeFragmentToRecipeListFragment(null)
-                findNavController().navigate(action)
-            }
-        }
+//        search_view.findViewById<EditText>(androidx.appcompat.R.id.search_src_text).apply {
+//            isFocusableInTouchMode = false
+//            setOnClickListener {
+//                val action = HomeFragmentDirections.actionHomeFragmentToRecipeListFragment(null)
+//                findNavController().navigate(action)
+//            }
+//        }
     }
 
 

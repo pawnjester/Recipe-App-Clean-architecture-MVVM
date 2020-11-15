@@ -7,10 +7,6 @@
     app:layoutDescription="@xml/home_motion_scene"
     tools:context=".ui.ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <View
             android:id="@+id/toolbar"
@@ -18,12 +14,12 @@
             android:layout_height="0dp"
             style="@style/CardView.Recipe"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@id/guidline_toolbar"
+            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/toolbar_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:elevation="4dp"
@@ -31,6 +27,7 @@
             android:textColor="@color/colorTundora"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:paddingTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/search_view"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,12 +44,11 @@
             android:focusable="false"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:queryHint="Search Recipes" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidline_toolbar"
+            android:id="@+id/guideline_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -60,18 +56,14 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipe_rv"
+            android:id="@+id/recipe_rv_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guidline_toolbar" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            app:layout_constraintTop_toBottomOf="@id/guideline_toolbar" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
