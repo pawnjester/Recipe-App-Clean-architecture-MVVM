@@ -1,4 +1,4 @@
-package com.example.core.core
+package com.example.domain.executor
 
 sealed class Status<T>(val data: T? = null, val message: String? = null) {
     class Success<T>(data: T) : Status<T>(data)

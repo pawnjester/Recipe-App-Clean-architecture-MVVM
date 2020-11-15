@@ -10,4 +10,6 @@ interface RecipeCache {
         addRecipeInformation: Boolean
     ) : Flow<List<RecipeEntity>>
 
+    suspend fun favoriteRecipe(recipe: RecipeEntity)
+
 }

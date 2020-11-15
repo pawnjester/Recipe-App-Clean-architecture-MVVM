@@ -24,7 +24,7 @@
         android:id="@+id/navigation_favorite"
         android:name="com.example.recipe_view.ui.ui.recipe_favorite.FavoriteRecipeFragment"
         android:label="fragment_favorite_recipe"
-        tools:layout="@layout/fragment_favorite_recipe" >
+        tools:layout="@layout/fragment_favorite_recipe">
         <action
             android:id="@+id/action_favoriteRecipeFragment_to_recipeDetailFragment"
             app:destination="@id/recipeDetailFragment" />
@@ -33,10 +33,18 @@
         android:id="@+id/recipeListFragment"
         android:name="com.example.recipe_view.ui.ui.recipe_list.RecipeListFragment"
         android:label="fragment_recipe_list"
-        tools:layout="@layout/fragment_recipe_list" >
+        tools:layout="@layout/fragment_recipe_list">
         <action
             android:id="@+id/action_recipeListFragment_to_recipeDetailFragment"
-            app:destination="@id/recipeDetailFragment" />
+            app:destination="@id/recipeDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="recipe"
+            app:argType="com.example.recipe_view.ui.model.RecipeModel"
+            app:nullable="true" />
     </fragment>
 
 

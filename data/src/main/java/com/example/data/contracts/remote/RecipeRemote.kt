@@ -8,5 +8,5 @@ interface RecipeRemote {
     fun getRecipes(
         query: String,
         addRecipeInformation: Boolean? = true
-    ) : Flow<List<RecipeEntity>>
+    ): Flow<List<RecipeEntity>>
 }

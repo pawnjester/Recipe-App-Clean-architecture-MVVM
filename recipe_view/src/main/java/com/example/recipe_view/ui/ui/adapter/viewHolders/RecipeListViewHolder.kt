@@ -6,21 +6,36 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe_view.R
 import com.example.recipe_view.ui.model.RecipeModel
+import com.example.recipe_view.ui.ui.ext.loadImage
+import kotlinx.android.synthetic.main.recipe_item.view.*
 
-class RecipeListViewHolder(private val view : View) : RecyclerView.ViewHolder(view) {
+class RecipeListViewHolder(
+    private val view: View,
+    private val viewDetailsCallback: (RecipeModel) -> Unit,
+    private val favoriteRecipeCallback: (RecipeModel) -> Unit
+) : RecyclerView.ViewHolder(view) {
 
     fun bind(item: RecipeModel) {
-
+        view.recipe_name.text = item.title
+        view.recipe_image.loadImage(item.image)
+        view.recipe_image.setOnClickListener {
+            viewDetailsCallback.invoke(item)
+        }
+        view.favorite_recipe.setOnClickListener {
+            favoriteRecipeCallback.invoke(item)
+        }
     }
 
     companion object {
         fun create(
-            parent: ViewGroup
-        ) : RecipeListViewHolder {
+            parent: ViewGroup,
+            viewDetailsCallback: (RecipeModel) -> Unit,
+            favoriteRecipeCallback: (RecipeModel) -> Unit
+        ): RecipeListViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(
                 R.layout.recipe_item, parent, false
             )
-            return RecipeListViewHolder(view)
+            return RecipeListViewHolder(view, viewDetailsCallback, favoriteRecipeCallback)
         }
     }
 }

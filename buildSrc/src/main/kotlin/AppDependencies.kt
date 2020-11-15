@@ -66,10 +66,17 @@ object Dependencies {
             const val recyclerView = "1.2.0-alpha05"
             const val appCompat: String = "1.3.0-alpha02"
             const val fragment: String = "1.3.0-alpha08"
+            const val glide: String = "4.11.0"
+        }
+
+        object AnnotationProcessor {
+            const val glide: String = "com.github.bumptech.glide:compiler:${Versions.glide}"
         }
 
 
-        const val recyclerView: String = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+        const val glide: String = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val recyclerView: String =
+            "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val constraintLayout: String =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val appCompat: String = "androidx.appcompat:appcompat:${Versions.appCompat}"
@@ -182,9 +189,11 @@ object Dependencies {
         }
 
         const val retrofit: String = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
-        const val retrofitConversion: String = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
+        const val retrofitConversion: String =
+            "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
         const val okHttp: String = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
-        const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 
     }
 

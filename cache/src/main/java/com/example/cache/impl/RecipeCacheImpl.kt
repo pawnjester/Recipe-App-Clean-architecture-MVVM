@@ -13,6 +13,7 @@ class RecipeCacheImpl @Inject constructor(
     private val dao: RecipeDao,
     private val mapper: RecipeCacheModelMapper
 ) : RecipeCache {
+
     override fun getRecipes(
         query: String,
         addRecipeInformation: Boolean
@@ -24,6 +25,10 @@ class RecipeCacheImpl @Inject constructor(
             }
 
         }
+    }
+
+    override suspend fun favoriteRecipe(recipe: RecipeEntity) {
+        dao.favoriteRecipe(mapper.mapToModel(recipe))
     }
 
 }

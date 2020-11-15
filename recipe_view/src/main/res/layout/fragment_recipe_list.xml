@@ -62,7 +62,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="8dp"
+                tools:listitem="@layout/recipe_item"
+                tools:itemCount="4"/>
 
         </androidx.core.widget.NestedScrollView>
 

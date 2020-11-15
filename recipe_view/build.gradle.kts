@@ -66,6 +66,7 @@ dependencies {
         implementation(constraintLayout)
         implementation(recyclerView)
         implementation(shimmerLayout)
+        implementation(glide)
     }
 
     implementation(FlowBinding.android)
@@ -73,6 +74,8 @@ dependencies {
     implementation(DI.hiltViewModel)
     implementAll(AndroidX.components)
     implementAll(Coroutines.components)
+
+    kapt(View.AnnotationProcessor.glide)
 
     kapt(DI.AnnotationProcessor.hiltAndroid)
     kapt(DI.AnnotationProcessor.hiltCompiler)

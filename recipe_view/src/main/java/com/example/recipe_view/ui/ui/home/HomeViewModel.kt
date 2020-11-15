@@ -23,7 +23,7 @@ class HomeViewModel @ViewModelInject constructor(
     fun getRecipes(query: String) {
         viewModelScope.launch {
             getRecipeList(query).collect {
-                Log.e(">>>", it.toString())
+                Log.e(">>>", it.data.toString())
             }
         }
     }
