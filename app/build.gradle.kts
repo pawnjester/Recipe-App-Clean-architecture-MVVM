@@ -84,6 +84,7 @@ dependencies {
     AndroidX.run {
         implementation(activity)
         implementation(coreKtx)
+        implementation(liveData)
         implementation(navigationFragmentKtx)
         implementation(navigationUiKtx)
         implementation(multiDex)

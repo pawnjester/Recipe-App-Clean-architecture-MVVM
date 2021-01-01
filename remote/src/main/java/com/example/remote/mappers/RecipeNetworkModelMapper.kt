@@ -5,14 +5,17 @@ import com.example.remote.mappers.base.RemoteModelMapper
 import com.example.remote.models.RecipeNetworkModel
 import javax.inject.Inject
 
-class RecipeNetworkModelMapper @Inject constructor() : RemoteModelMapper<RecipeNetworkModel, RecipeEntity> {
+class RecipeNetworkModelMapper @Inject constructor(
+    private val mapper: AnalyzedInstructionNetworkMapper
+) : RemoteModelMapper<RecipeNetworkModel, RecipeEntity> {
 
     override fun mapFromModel(model: RecipeNetworkModel): RecipeEntity {
         return RecipeEntity(
             model.id,
             model.title,
             model.summary,
-            model.image
+            model.image,
+            mapper.mapFromDomainList(model.analyzedInstructions)
         )
     }
 }

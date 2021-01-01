@@ -2,6 +2,8 @@ import Dependencies.DI
 import Dependencies.TestLibraires
 import Dependencies.Remote
 import ProjectLib.data
+import ProjectLib.domain
+import ProjectLib.core
 import ProjectLib.testUtils
 
 
@@ -45,6 +47,8 @@ android {
 dependencies {
 
     implementation(project(data))
+    implementation(project(core))
+    implementation(project(domain))
     implementation(project(testUtils))
 
     implementation(DI.hiltAndroid)

@@ -8,7 +8,7 @@ fun ImageView.loadImage(url: String) {
     Glide.with(this.context)
         .load(url)
         .fitCenter()
-        .placeholder(R.drawable.ic_baseline_favorite)
+        .placeholder(R.drawable.ic_placeholder_food)
         .into(this)
 
 }

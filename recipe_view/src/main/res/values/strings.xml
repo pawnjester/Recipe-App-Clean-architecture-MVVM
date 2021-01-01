@@ -7,5 +7,9 @@
     <string name="recipes">Recipes</string>
     <string name="home_menu">Home</string>
     <string name="favorites_menu">Favorite</string>
-    <string name="search_recipe_hint">Search Recipe</string>
+    <string name="search_recipe_hint">Search Recipes…</string>
+    <string name="instructions_text">Instructions</string>
+    <string name="ingredients_text">Ingredients</string>
+    <string name="summary_text">Summary</string>
+    <string name="recipe_title">Recipe</string>
 </resources>

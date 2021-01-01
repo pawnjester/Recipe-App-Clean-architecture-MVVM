@@ -22,10 +22,12 @@ class RecipeRemoteImpl @Inject constructor(
                 apiKey = "af8e56d167184bafaa69b19b603f276d",
                 query = query,
                 addRecipeInformation = true
-            ).results.map {
-                mapper.mapFromModel(it)
+            ).results
+            if (apiResponse.isNotEmpty()) {
+                emit(apiResponse.map {
+                    mapper.mapFromModel(it)
+                })
             }
-            emit(apiResponse)
         }
     }
 

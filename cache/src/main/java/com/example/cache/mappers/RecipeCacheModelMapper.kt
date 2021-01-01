@@ -24,7 +24,8 @@ class RecipeCacheModelMapper @Inject constructor(): CacheModelMapper<RecipeCache
                 model.id,
                 model.title,
                 model.summary,
-                model.image
+                model.image,
+                emptyList()
             )
         }
     }

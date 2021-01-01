@@ -50,10 +50,12 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
         const val coreKtx: String = "androidx.core:core-ktx:${Versions.coreKTx}"
 
+        const val liveData: String = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
+
         override val components: List<String>
             get() = listOf(
                 coreKtx, navigationFragmentKtx, navigationUiKtx, multiDex, activity,
-                lifeCycleCommon, viewModel
+                lifeCycleCommon, viewModel, liveData
             )
 
     }

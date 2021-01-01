@@ -5,16 +5,16 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:duration="300">
         <OnClick
             motion:clickAction="toggle"
-            motion:touchAnchorId="@+id/search_view" />
+            motion:targetId="@+id/search_view_home" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
 
         <Constraint
-            android:id="@+id/search_view"
+            android:id="@+id/search_view_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -30,8 +30,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            motion:layout_constraintStart_toStartOf="@+id/search_view"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="@+id/search_view_home" />
+
+        <Constraint
+            android:id="@+id/search_results_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
 
         <Constraint
             android:id="@+id/recipe_rv_home"
@@ -45,7 +55,7 @@
     <ConstraintSet android:id="@+id/end">
 
         <Constraint
-            android:id="@id/search_view"
+            android:id="@id/search_view_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -66,12 +76,22 @@
             motion:visibilityMode="ignore" />
 
         <Constraint
+            android:id="@+id/search_results_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
+
+        <Constraint
             android:id="@+id/recipe_rv_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/search_view" />
+            motion:layout_constraintTop_toBottomOf="@id/guideline_toolbar" />
 
 
         <Constraint

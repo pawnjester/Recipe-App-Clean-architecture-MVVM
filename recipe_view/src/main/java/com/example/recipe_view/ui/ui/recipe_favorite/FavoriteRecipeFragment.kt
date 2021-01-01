@@ -12,12 +12,7 @@ class FavoriteRecipeFragment : Fragment(R.layout.fragment_favorite_recipe) {
 
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavoriteRecipeFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+    private fun setupRecyclerView() {
+
     }
 }
