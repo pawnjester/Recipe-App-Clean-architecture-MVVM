@@ -9,7 +9,8 @@ data class RecipeModel(
     val title: String,
     val summary: String,
     val image: String,
-    val analyzedInstructions: List<InstructionModel>
+    val analyzedInstructions: List<InstructionModel>,
+    var isFavorite: Boolean = false
 ) : Parcelable
 
 @Parcelize

@@ -1,7 +1,9 @@
 package com.example.recipe_view.ui.ui.home
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -11,9 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe_view.R
+import com.example.recipe_view.databinding.FragmentHomeBinding
 import com.example.recipe_view.ui.ui.adapter.RecipeListAdapter
 import com.example.recipe_view.ui.utils.MarginItemDecoration
 import com.example.recipe_view.ui.utils.hideKeyboard
+import com.example.recipe_view.ui.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -23,8 +27,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
 
+    private var _binding: FragmentHomeBinding? = null
+
+    private val binding get() = _binding!!
+
     @Inject
     lateinit var recipeAdapter: RecipeListAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,10 +51,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         subscribeToUi()
 
-        search_view_home.setOnFocusChangeListener { _, _ ->
+        binding.searchViewHome.setOnFocusChangeListener { _, _ ->
             home_layout.transitionToEnd()
         }
-        search_view_home.doOnTextChanged { text, _, _, _ ->
+        binding.searchViewHome.doOnTextChanged { text, _, _, _ ->
             text?.let {
                 viewModel.getRecipes(it.toString())
             }
@@ -52,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             viewModel.favoriteRecipe(it)
         }
 
-        home_layout.setTransitionListener(object : MotionLayout.TransitionListener {
+        binding.homeLayout.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {}
 
             override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
@@ -76,27 +94,32 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setupRecyclerView() {
-        recipe_rv_home.layoutManager = LinearLayoutManager(
+        binding.recipeRvHome.layoutManager = LinearLayoutManager(
             requireContext(), RecyclerView.VERTICAL, false
         )
-        recipe_rv_home.addItemDecoration(MarginItemDecoration(16))
-        recipe_rv_home.adapter = recipeAdapter
+        binding.recipeRvHome.addItemDecoration(MarginItemDecoration(16))
+        binding.recipeRvHome.adapter = recipeAdapter
     }
 
     private fun subscribeToUi() {
         viewModel.recipes.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is LatestNewsUiState.Loading -> {
-                    search_results_progress_bar.visibility = View.VISIBLE
+                    binding.searchResultsProgressBar.show(true)
                 }
                 is LatestNewsUiState.Success -> {
-                    search_results_progress_bar.visibility = View.GONE
+                    binding.searchResultsProgressBar.show(false)
                     recipeAdapter.setRecipes(it.recipes)
                 }
                 is LatestNewsUiState.Error -> {
-                    search_results_progress_bar.visibility = View.GONE
+                    binding.searchResultsProgressBar.show(false)
                 }
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

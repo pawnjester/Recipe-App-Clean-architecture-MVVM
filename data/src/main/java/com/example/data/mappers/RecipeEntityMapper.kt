@@ -16,7 +16,8 @@ class RecipeEntityMapper @Inject constructor(
                 entity.title,
                 entity.summary,
                 entity.image,
-                mapper.mapFromEntityList(entity.analyzedInstructions)
+                mapper.mapFromEntityList(entity.analyzedInstructions),
+                entity.isFavorite
             )
         }
     }
@@ -27,7 +28,8 @@ class RecipeEntityMapper @Inject constructor(
                 domain.id, domain.title,
                 domain.summary,
                 domain.image,
-                mapper.mapFromDomainList(domain.analyzedInstructions)
+                mapper.mapFromDomainList(domain.analyzedInstructions),
+                domain.isFavorite
             )
         }
     }

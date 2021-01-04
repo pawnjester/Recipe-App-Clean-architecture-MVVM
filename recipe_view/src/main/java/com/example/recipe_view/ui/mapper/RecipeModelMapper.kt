@@ -6,8 +6,8 @@ import com.example.recipe_view.ui.model.RecipeModel
 import javax.inject.Inject
 
 class RecipeModelMapper @Inject constructor(
-    private val mapper : AnalyzedInstructionModelMapper
-): ModelMapper<RecipeModel, Recipe> {
+    private val mapper: AnalyzedInstructionModelMapper
+) : ModelMapper<RecipeModel, Recipe> {
 
     override fun mapToModel(domain: Recipe): RecipeModel {
         return domain.run {
@@ -16,7 +16,8 @@ class RecipeModelMapper @Inject constructor(
                 domain.title,
                 domain.summary,
                 domain.image,
-                mapper.mapToDomainList(domain.analyzedInstructions)
+                mapper.mapToDomainList(domain.analyzedInstructions),
+                domain.isFavorite
             )
         }
     }
@@ -28,7 +29,8 @@ class RecipeModelMapper @Inject constructor(
                 model.title,
                 model.summary,
                 model.image,
-                mapper.mapToModelList(model.analyzedInstructions)
+                mapper.mapToModelList(model.analyzedInstructions),
+                model.isFavorite
             )
         }
     }

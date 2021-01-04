@@ -47,7 +47,8 @@ class HomeViewModel @ViewModelInject constructor(
 
     fun favoriteRecipe(recipe: RecipeModel) {
         viewModelScope.launch {
-            favoriteRecipeUseCase(mapper.mapToDomain(recipe))
+            val otherRecipe = recipe.copy(isFavorite = true)
+            favoriteRecipeUseCase(mapper.mapToDomain(otherRecipe))
         }
     }
 }

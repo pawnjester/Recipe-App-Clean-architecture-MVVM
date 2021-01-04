@@ -5,7 +5,9 @@ import com.example.cache.models.RecipeCacheModel
 import com.example.data.model.RecipeEntity
 import javax.inject.Inject
 
-class RecipeCacheModelMapper @Inject constructor(): CacheModelMapper<RecipeCacheModel, RecipeEntity> {
+class RecipeCacheModelMapper @Inject constructor(
+    private val mapper : AnalyzedInstructionCacheModelMapper
+): CacheModelMapper<RecipeCacheModel, RecipeEntity> {
 
     override fun mapToModel(entity: RecipeEntity): RecipeCacheModel {
         return entity.run {
@@ -13,7 +15,9 @@ class RecipeCacheModelMapper @Inject constructor(): CacheModelMapper<RecipeCache
                 entity.id,
                 entity.title,
                 entity.summary,
-                entity.image
+                entity.image,
+                mapper.mapToModelList(entity.analyzedInstructions),
+                entity.isFavorite
             )
         }
     }
@@ -25,7 +29,8 @@ class RecipeCacheModelMapper @Inject constructor(): CacheModelMapper<RecipeCache
                 model.title,
                 model.summary,
                 model.image,
-                emptyList()
+                mapper.mapToEntityList(model.analyzedInstructions),
+                model.isFavorite
             )
         }
     }

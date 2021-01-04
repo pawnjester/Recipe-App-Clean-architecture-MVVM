@@ -5,7 +5,8 @@ data class RecipeEntity(
     val title: String,
     val summary: String,
     val image: String,
-    val analyzedInstructions: List<InstructionEntity>
+    val analyzedInstructions: List<InstructionEntity>,
+    val isFavorite: Boolean = false
 )
 
 data class InstructionEntity(

@@ -5,7 +5,8 @@ data class Recipe (
     val title: String,
     val summary: String,
     val image: String,
-    val analyzedInstructions : List<Instruction>
+    val analyzedInstructions : List<Instruction>,
+    val isFavorite: Boolean = false
 )
 
 data class Instruction(

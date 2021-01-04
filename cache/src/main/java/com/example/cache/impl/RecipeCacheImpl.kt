@@ -6,7 +6,6 @@ import com.example.data.contracts.cache.RecipeCache
 import com.example.data.model.RecipeEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class RecipeCacheImpl @Inject constructor(
@@ -14,21 +13,23 @@ class RecipeCacheImpl @Inject constructor(
     private val mapper: RecipeCacheModelMapper
 ) : RecipeCache {
 
-    override fun getRecipes(
-        query: String,
-        addRecipeInformation: Boolean
+    override fun getFavoriteRecipes(
     ): Flow<List<RecipeEntity>> {
         return flow {
             val models = dao.getProducts()
-            models.map {
-                mapper.mapToEntityList(it)
-            }
+            emit(models.map {
+                mapper.mapToEntity(it)
+            })
 
         }
     }
 
     override suspend fun favoriteRecipe(recipe: RecipeEntity) {
         dao.favoriteRecipe(mapper.mapToModel(recipe))
+    }
+
+    override suspend fun removeRecipe(title: String) {
+        dao.removeRecipe(title)
     }
 
 }

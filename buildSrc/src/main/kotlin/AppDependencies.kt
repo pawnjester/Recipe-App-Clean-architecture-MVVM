@@ -173,6 +173,7 @@ object Dependencies {
     object Cache {
         object Versions {
             const val roomVersion = "2.3.0-alpha02"
+            const val gsonVersion = "2.8.6"
         }
 
         object AnnotationProcessor {
@@ -180,6 +181,7 @@ object Dependencies {
         }
 
         const val room: String = "androidx.room:room-ktx:${Versions.roomVersion}"
+        const val gson: String = "com.google.code.gson:gson:${Versions.gsonVersion}"
     }
 
     object Remote {

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/favorite_recipe_detail"
         android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="@string/favorites_menu"
         app:showAsAction="ifRoom"/>

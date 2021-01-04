@@ -31,4 +31,16 @@ class RecipeRepositoryImpl @Inject constructor(
     override suspend fun favoriteRecipe(recipe: Recipe) {
         return recipeCache.favoriteRecipe(mapper.mapToEntity(recipe))
     }
+
+    override fun getFavoriteRecipes(): Flow<List<Recipe>> {
+        return flow {
+            emitAll(recipeCache.getFavoriteRecipes().map {
+                mapper.mapFromEntityList(it)
+            })
+        }
+    }
+
+    override suspend fun removeRecipe(title: String) {
+        return recipeCache.removeRecipe(title)
+    }
 }
