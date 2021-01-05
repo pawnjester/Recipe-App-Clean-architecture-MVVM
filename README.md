@@ -1,4 +1,4 @@
-## Clue Submission App
+## Recipe App Clean Architecture and MVVM
 This app is a simple application that allows the user to search and save recipes. This app makes use of the [Spoonacular API](https://spoonacular.com/)
 
 ## Screenshots
