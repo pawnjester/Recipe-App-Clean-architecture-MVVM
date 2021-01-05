@@ -1,5 +1,5 @@
 ## Clue Submission App
-This app is a simple application that allows the user to search for recipes. This app makes use of the [Spoonacular API](https://spoonacular.com/)
+This app is a simple application that allows the user to search and save recipes. This app makes use of the [Spoonacular API](https://spoonacular.com/)
 
 ## Screenshots
 |<img src="screenshots/Screenshot_1.jpg" width=200/>|<img src="screenshots/Screenshot_2.jpg" width=200/>|<img src="screenshots/Screenshot_3.jpg" width=200/>|<img src="screenshots/Screenshot_4.jpg" width=200/>
