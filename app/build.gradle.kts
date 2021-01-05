@@ -66,7 +66,6 @@ dependencies {
 
     implementation(project(recipeView))
     implementation(project(cache))
-    implementation(project(presentation))
     implementation(project(domain))
     implementation(project(data))
     implementation(project(core))
@@ -84,6 +83,7 @@ dependencies {
     AndroidX.run {
         implementation(activity)
         implementation(coreKtx)
+        implementation(liveData)
         implementation(navigationFragmentKtx)
         implementation(navigationUiKtx)
         implementation(multiDex)

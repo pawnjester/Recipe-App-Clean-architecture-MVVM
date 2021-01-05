@@ -2,7 +2,13 @@ import Dependencies.DI
 import Dependencies.TestLibraires
 import Dependencies.Remote
 import ProjectLib.data
+import ProjectLib.domain
+import ProjectLib.core
 import ProjectLib.testUtils
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
+val key = gradleLocalProperties(rootDir).getProperty("apiKey")
+
 
 
 plugins {
@@ -25,6 +31,7 @@ android {
         }
 
         buildConfigField("String", "BASE_URL_API", "\"https://api.spoonacular.com/\"")
+        buildConfigField("String", "SPOONACULAR_API_KEY", key)
     }
 
     buildTypes {
@@ -40,11 +47,16 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+    buildFeatures {
+        viewBinding =  true
+    }
 }
 
 dependencies {
 
     implementation(project(data))
+    implementation(project(core))
+    implementation(project(domain))
     implementation(project(testUtils))
 
     implementation(DI.hiltAndroid)

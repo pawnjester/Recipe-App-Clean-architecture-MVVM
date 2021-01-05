@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CardView.Search" parent="Widget.MaterialComponents.CardView">
-
-        <item name="cardElevation">0dp</item>
-        <item name="cardCornerRadius">20dp</item>
-        <item name="backgroundColor">#CBCED1</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="strokeColor">#CBCED1</item>
-    </style>
 
     <style name="CardView.Recipe" parent="Widget.MaterialComponents.CardView">
 
         <item name="cardElevation">0dp</item>
-        <item name="cardCornerRadius">20dp</item>
+        <item name="cardCornerRadius">0dp</item>
         <item name="backgroundColor">#CBCED1</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">#CBCED1</item>
@@ -25,22 +17,21 @@
         <item name="titleTextColor">@android:color/black</item>
     </style>
 
-    <style name="AppBar.Main" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+
+    <style name="TextView.Title" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@android:color/white</item>
-        <item name="elevation">0dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
     </style>
 
-
-
-    <style name="SearchView.Design" parent="Widget.AppCompat.SearchView">
+    <style name="TextView.Title.Section" parent="TextView.Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:background">@null</item>
-        <item name="fontFamily">@font/didact_gothic_regular</item>
-        <item name="iconifiedByDefault">false</item>
-        <item name="backgroundColor">@null</item>
-        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:letterSpacing">0.075</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -51,5 +42,14 @@
 
         <item name="android:statusBarColor">@color/colorSilver</item>
         <item name="android:windowBackground">@color/colorAquaHaze</item>
+    </style>
+    <style name="BottomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="background">@color/white</item>
     </style>
 </resources>

@@ -3,6 +3,7 @@ package com.example.remote.impl
 import com.example.data.contracts.remote.RecipeRemote
 import com.example.data.model.RecipeEntity
 import com.example.remote.ApiService
+import com.example.remote.BuildConfig
 import com.example.remote.mappers.RecipeNetworkModelMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -19,13 +20,15 @@ class RecipeRemoteImpl @Inject constructor(
     ): Flow<List<RecipeEntity>> {
         return flow {
             val apiResponse = apiService.getRecipes(
-                apiKey = "af8e56d167184bafaa69b19b603f276d",
+                apiKey = BuildConfig.SPOONACULAR_API_KEY,
                 query = query,
                 addRecipeInformation = true
-            ).results.map {
-                mapper.mapFromModel(it)
+            ).results
+            if (apiResponse.isNotEmpty()) {
+                emit(apiResponse.map {
+                    mapper.mapFromModel(it)
+                })
             }
-            emit(apiResponse)
         }
     }
 

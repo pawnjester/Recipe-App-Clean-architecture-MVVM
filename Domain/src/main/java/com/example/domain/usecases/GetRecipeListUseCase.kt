@@ -11,14 +11,14 @@ import javax.inject.Inject
 class GetRecipeListUseCase @Inject constructor(
     private val repository: RecipeRepository,
     private val postExecution: PostExecutorThread
-): FlowUseCase<String, List<Recipe>>()  {
+) : FlowUseCase<String, List<Recipe>>() {
 
     override val dispatcher: CoroutineDispatcher
         get() = postExecution.io
 
     override fun execute(params: String?): Flow<List<Recipe>> {
-        requireNotNull(params) {"params cannot be null"}
-        return repository.getRecipe(params)
+        requireNotNull(params) { "params cannot be null" }
+        return repository.getRecipes(params)
     }
 
 }

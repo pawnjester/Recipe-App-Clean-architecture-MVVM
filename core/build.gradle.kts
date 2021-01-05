@@ -1,7 +1,3 @@
-import Dependencies.AndroidX
-import Dependencies.Coroutines
-import Dependencies.DI
-import Dependencies.View
 import ProjectLib.data
 import ProjectLib.domain
 
@@ -38,12 +34,12 @@ dependencies {
     implementation(project(data))
     implementation(project(domain))
 
-    implementation(AndroidX.lifeCycleCommon)
-    implementation(View.appCompat)
-    implementation(View.fragment)
-    implementation(DI.hiltAndroid)
-    implementation(Coroutines.core)
+    implementation(Dependencies.AndroidX.lifeCycleCommon)
+    implementation(Dependencies.View.appCompat)
+    implementation(Dependencies.View.fragment)
+    implementation(Dependencies.DI.hiltAndroid)
+    implementation(Dependencies.Coroutines.core)
 
-    kapt(DI.AnnotationProcessor.hiltAndroid)
+    kapt(Dependencies.DI.AnnotationProcessor.hiltAndroid)
 
 }

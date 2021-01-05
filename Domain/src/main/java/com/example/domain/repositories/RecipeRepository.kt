@@ -5,5 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface RecipeRepository {
 
-    fun getRecipe(query: String) : Flow<List<Recipe>>
+    fun getRecipes(query: String): Flow<List<Recipe>>
+
+    suspend fun favoriteRecipe(recipe: Recipe)
+
+    fun getFavoriteRecipes() : Flow<List<Recipe>>
+
+    suspend fun removeRecipe(title: String)
 }

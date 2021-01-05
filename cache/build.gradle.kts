@@ -48,6 +48,7 @@ dependencies {
     implementation(project(testUtils))
 
     implementation(DI.hiltAndroid)
+    implementation(Cache.gson)
     api(Cache.room)
 
     testImplementation(TestLibraires.runner)

@@ -4,13 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/home_layout"
     app:layoutDescription="@xml/home_motion_scene"
-    tools:context=".ui.ui.recipe_list.RecipeListFragment">
+    tools:context=".ui.ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <View
             android:id="@+id/toolbar"
@@ -18,40 +15,43 @@
             android:layout_height="0dp"
             style="@style/CardView.Recipe"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@id/guidline_toolbar"
+            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/toolbar_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:elevation="4dp"
+            android:paddingTop="16dp"
             android:text="@string/recipes"
             android:textColor="@color/colorTundora"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/search_view"
+            app:layout_constraintStart_toStartOf="@+id/search_view_home"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view"
+        <ProgressBar
+            android:id="@+id/search_results_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/search_view_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="28dp"
-            android:background="@color/white"
-            style="@style/SearchView.Design"
-            android:elevation="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:queryHint="Search Recipes" />
+            android:background="@drawable/bg_search_edit_text"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="8dp"
+            android:focusable="true"
+            android:hint="@string/search_recipe_hint"
+            android:inputType="text"
+            android:padding="16dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidline_toolbar"
+            android:id="@+id/guideline_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -59,18 +59,15 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipe_rv"
+            android:id="@+id/recipe_rv_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            android:paddingBottom="200dp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guidline_toolbar" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            app:layout_constraintTop_toBottomOf="@id/guideline_toolbar" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

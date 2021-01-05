@@ -50,10 +50,12 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
         const val coreKtx: String = "androidx.core:core-ktx:${Versions.coreKTx}"
 
+        const val liveData: String = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
+
         override val components: List<String>
             get() = listOf(
                 coreKtx, navigationFragmentKtx, navigationUiKtx, multiDex, activity,
-                lifeCycleCommon, viewModel
+                lifeCycleCommon, viewModel, liveData
             )
 
     }
@@ -66,10 +68,17 @@ object Dependencies {
             const val recyclerView = "1.2.0-alpha05"
             const val appCompat: String = "1.3.0-alpha02"
             const val fragment: String = "1.3.0-alpha08"
+            const val glide: String = "4.11.0"
+        }
+
+        object AnnotationProcessor {
+            const val glide: String = "com.github.bumptech.glide:compiler:${Versions.glide}"
         }
 
 
-        const val recyclerView: String = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+        const val glide: String = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val recyclerView: String =
+            "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
         const val constraintLayout: String =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val appCompat: String = "androidx.appcompat:appcompat:${Versions.appCompat}"
@@ -164,6 +173,7 @@ object Dependencies {
     object Cache {
         object Versions {
             const val roomVersion = "2.3.0-alpha02"
+            const val gsonVersion = "2.8.6"
         }
 
         object AnnotationProcessor {
@@ -171,6 +181,7 @@ object Dependencies {
         }
 
         const val room: String = "androidx.room:room-ktx:${Versions.roomVersion}"
+        const val gson: String = "com.google.code.gson:gson:${Versions.gsonVersion}"
     }
 
     object Remote {
@@ -182,9 +193,11 @@ object Dependencies {
         }
 
         const val retrofit: String = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
-        const val retrofitConversion: String = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
+        const val retrofitConversion: String =
+            "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
         const val okHttp: String = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
-        const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+        const val okHttpLoggingInterceptor =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 
     }
 

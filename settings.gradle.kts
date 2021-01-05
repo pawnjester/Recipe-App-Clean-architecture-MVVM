@@ -5,7 +5,6 @@ include(
     ":core",
     ":cache",
     ":data",
-    ":presentation",
     ":recipe_view",
     ":testUtils",
     ":remote"
