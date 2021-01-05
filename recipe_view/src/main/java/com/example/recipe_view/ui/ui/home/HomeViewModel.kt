@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.usecases.FavoriteRecipeUseCase
 import com.example.domain.usecases.GetRecipeListUseCase
 import com.example.recipe_view.ui.mapper.RecipeModelMapper
 import com.example.recipe_view.ui.model.RecipeModel
@@ -17,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject constructor(
     private val getRecipeList: GetRecipeListUseCase,
-    private val favoriteRecipeUseCase: FavoriteRecipeUseCase,
     private val mapper: RecipeModelMapper
 ) : ViewModel() {
 
@@ -42,13 +40,6 @@ class HomeViewModel @ViewModelInject constructor(
                             it
                         )
                 }
-        }
-    }
-
-    fun favoriteRecipe(recipe: RecipeModel) {
-        viewModelScope.launch {
-            val otherRecipe = recipe.copy(isFavorite = true)
-            favoriteRecipeUseCase(mapper.mapToDomain(otherRecipe))
         }
     }
 }

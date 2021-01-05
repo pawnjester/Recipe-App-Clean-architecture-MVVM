@@ -49,7 +49,6 @@ android {
 dependencies {
 
     implementation(project(core))
-    implementation(project(presentation))
     implementation(project(domain))
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")

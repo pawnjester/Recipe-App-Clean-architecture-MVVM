@@ -6,6 +6,7 @@ import android.text.Html
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -35,4 +36,8 @@ fun View.show(show: Boolean) {
     } else {
         View.GONE
     }
+}
+
+fun Fragment.showToast(message: String) {
+    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
 }

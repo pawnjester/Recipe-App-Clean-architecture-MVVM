@@ -18,6 +18,7 @@ import com.example.recipe_view.ui.ui.adapter.RecipeListAdapter
 import com.example.recipe_view.ui.utils.MarginItemDecoration
 import com.example.recipe_view.ui.utils.hideKeyboard
 import com.example.recipe_view.ui.utils.show
+import com.example.recipe_view.ui.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -66,10 +67,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(action)
         }
 
-        recipeAdapter.favoriteRecipeCallback = {
-            viewModel.favoriteRecipe(it)
-        }
-
         binding.homeLayout.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {}
 
@@ -113,6 +110,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
                 is LatestNewsUiState.Error -> {
                     binding.searchResultsProgressBar.show(false)
+                    showToast("Cannot fetch results, Please check your internet connection")
                 }
             }
         })

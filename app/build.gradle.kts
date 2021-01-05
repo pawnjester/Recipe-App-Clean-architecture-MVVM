@@ -66,7 +66,6 @@ dependencies {
 
     implementation(project(recipeView))
     implementation(project(cache))
-    implementation(project(presentation))
     implementation(project(domain))
     implementation(project(data))
     implementation(project(core))

@@ -5,6 +5,10 @@ import ProjectLib.data
 import ProjectLib.domain
 import ProjectLib.core
 import ProjectLib.testUtils
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
+val key = gradleLocalProperties(rootDir).getProperty("apiKey")
+
 
 
 plugins {
@@ -27,6 +31,7 @@ android {
         }
 
         buildConfigField("String", "BASE_URL_API", "\"https://api.spoonacular.com/\"")
+        buildConfigField("String", "SPOONACULAR_API_KEY", key)
     }
 
     buildTypes {

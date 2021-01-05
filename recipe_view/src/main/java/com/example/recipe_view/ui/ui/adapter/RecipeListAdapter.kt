@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class RecipeListAdapter @Inject constructor() : RecyclerView.Adapter<RecipeListViewHolder>() {
     var viewDetailsCallback: ((RecipeModel) -> Unit)? = null
-    var favoriteRecipeCallback: ((RecipeModel) -> Unit)? = null
     private var recipes = mutableListOf<RecipeModel>()
 
     fun setRecipes(items: List<RecipeModel>) {
@@ -20,8 +19,7 @@ class RecipeListAdapter @Inject constructor() : RecyclerView.Adapter<RecipeListV
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeListViewHolder {
         return RecipeListViewHolder.create(
             parent,
-            viewDetailsCallback ?: {},
-            favoriteRecipeCallback ?: {})
+            viewDetailsCallback ?: {})
     }
 
     override fun getItemCount(): Int = recipes.size

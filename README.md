@@ -1,8 +1,12 @@
 ## Clue Submission App
-This app is a simple application that allows the user to search for recipes
+This app is a simple application that allows the user to search for recipes. This app makes use of the [Spoonacular API](https://spoonacular.com/)
+
+## Screenshots
+|<img src="screenshots/Screenshot_1.jpg" width=200/>|<img src="screenshots/Screenshot_2.jpg" width=200/>|<img src="screenshots/Screenshot_3.jpg" width=200/>|<img src="screenshots/Screenshot_4.jpg" width=200/>
 
 ## Built With 🛠
 
+- Android Studio 4.1.1+
 - [Kotlin](https://kotlinlang.org/)
 - [Kotlin DSL](https://proandroiddev.com/writing-dsls-in-kotlin-part-1-7f5d2193f277)
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
@@ -21,5 +25,10 @@ This app is a simple application that allows the user to search for recipes
 
 ## Architecture
 - This app uses [MVVM (Model View View-Model)](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture, repository pattern and clean architecture.
+
+## How to make use of the app
+- Create an account on [Spoonacular API](https://spoonacular.com/) to get an api key.
+- Clone this repo,
+- In `local.properties`, include this line `apiKey = <your key>`
 
 ### Created by Okonji Emmanuel

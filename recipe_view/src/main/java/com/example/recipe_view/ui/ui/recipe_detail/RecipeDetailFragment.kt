@@ -1,6 +1,7 @@
 package com.example.recipe_view.ui.ui.recipe_detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,6 +50,8 @@ class RecipeDetailFragment : Fragment() {
         toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        Log.e("NNNN", recipeArgs.recipe.toString())
 
         viewModel.setRecipeDetail(recipeArgs.recipe)
 

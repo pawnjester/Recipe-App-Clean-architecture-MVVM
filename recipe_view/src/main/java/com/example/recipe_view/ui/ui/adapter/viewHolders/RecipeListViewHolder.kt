@@ -11,8 +11,7 @@ import kotlinx.android.synthetic.main.recipe_item.view.*
 
 class RecipeListViewHolder(
     private val view: View,
-    private val viewDetailsCallback: (RecipeModel) -> Unit,
-    private val favoriteRecipeCallback: (RecipeModel) -> Unit
+    private val viewDetailsCallback: (RecipeModel) -> Unit
 ) : RecyclerView.ViewHolder(view) {
 
     fun bind(item: RecipeModel) {
@@ -21,21 +20,17 @@ class RecipeListViewHolder(
         view.recipe_image.setOnClickListener {
             viewDetailsCallback.invoke(item)
         }
-        view.favorite_recipe.setOnClickListener {
-            favoriteRecipeCallback.invoke(item)
-        }
     }
 
     companion object {
         fun create(
             parent: ViewGroup,
-            viewDetailsCallback: (RecipeModel) -> Unit,
-            favoriteRecipeCallback: (RecipeModel) -> Unit
+            viewDetailsCallback: (RecipeModel) -> Unit
         ): RecipeListViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(
                 R.layout.recipe_item, parent, false
             )
-            return RecipeListViewHolder(view, viewDetailsCallback, favoriteRecipeCallback)
+            return RecipeListViewHolder(view, viewDetailsCallback)
         }
     }
 }
