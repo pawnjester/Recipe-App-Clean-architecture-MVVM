@@ -1,14 +1,19 @@
 package com.example.recipe_view.ui.ui.recipe_favorite
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipe_view.R
+import com.example.recipe_view.databinding.FragmentFavoriteRecipeBinding
+import com.example.recipe_view.databinding.FragmentRecipeDetailBinding
 import com.example.recipe_view.ui.ui.adapter.FavoriteRecipeAdapter
 import com.example.recipe_view.ui.ui.home.LatestNewsUiState
 import com.example.recipe_view.ui.utils.MarginItemDecoration
@@ -24,6 +29,23 @@ class FavoriteRecipeFragment : Fragment(R.layout.fragment_favorite_recipe) {
     @Inject
     lateinit var favoriteRecipeAdapter: FavoriteRecipeAdapter
 
+    @Inject
+    lateinit var navController: NavController
+
+    private var _binding: FragmentFavoriteRecipeBinding? = null
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentFavoriteRecipeBinding.inflate(inflater, container, false)
+        return binding.root
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,16 +60,16 @@ class FavoriteRecipeFragment : Fragment(R.layout.fragment_favorite_recipe) {
                 FavoriteRecipeFragmentDirections.actionFavoriteRecipeFragmentToRecipeDetailFragment(
                     it
                 )
-            findNavController().navigate(action)
+            navController.navigate(action)
         }
     }
 
     private fun setupRecyclerView() {
-        favorite_rv.layoutManager = LinearLayoutManager(
+        binding.favoriteRv.layoutManager = LinearLayoutManager(
             requireContext(), RecyclerView.VERTICAL, false
         )
-        favorite_rv.addItemDecoration(MarginItemDecoration(16))
-        favorite_rv.adapter = favoriteRecipeAdapter
+        binding.favoriteRv.addItemDecoration(MarginItemDecoration(16))
+        binding.favoriteRv.adapter = favoriteRecipeAdapter
     }
 
     private fun subscribeToUi() {
@@ -63,5 +85,10 @@ class FavoriteRecipeFragment : Fragment(R.layout.fragment_favorite_recipe) {
                 }
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
