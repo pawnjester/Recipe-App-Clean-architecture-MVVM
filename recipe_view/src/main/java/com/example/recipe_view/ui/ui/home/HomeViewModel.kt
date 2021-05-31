@@ -10,7 +10,6 @@ import com.example.recipe_view.ui.mapper.RecipeModelMapper
 import com.example.recipe_view.ui.model.RecipeModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -28,7 +27,7 @@ class HomeViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             getRecipeList(query).map {
                 mapper.mapToModelList(it)
-            }.debounce(2000)
+            }
                 .catch {
                     _recipes.value =
                         LatestNewsUiState.Error(

@@ -25,7 +25,8 @@ class FavoriteRecipeViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             getFavoriteList().map {
                 mapper.mapToModelList(it)
-            }.collect {
+            }
+                .collect {
                 _favoriteRecipes.value = LatestNewsUiState.Success(it)
             }
         }
