@@ -70,6 +70,7 @@ dependencies {
     implementation(project(data))
     implementation(project(core))
     implementation(project(remote))
+    implementation(project(presentation))
 
     implementAll(View.components)
     implementation(DI.hiltAndroid)

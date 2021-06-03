@@ -9,3 +9,4 @@ include(
     ":testUtils",
     ":remote"
 )
+include(":presentation")
