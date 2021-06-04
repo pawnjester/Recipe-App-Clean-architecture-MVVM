@@ -4,6 +4,10 @@ import android.app.Activity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.recipe_view.R
+import com.example.recipe_view.ui.navigation.NavigationDispatcher
+import com.example.recipe_view.ui.navigation.NavigationDispatcherImpl
+import com.example.recipe_view.ui.ui.home.mvi.RecipeListViewReducer
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

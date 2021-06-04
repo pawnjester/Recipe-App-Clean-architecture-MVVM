@@ -38,6 +38,6 @@ fun View.show(show: Boolean) {
     }
 }
 
-fun Fragment.showToast(message: String) {
-    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+fun Context.showToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
